@@ -5,6 +5,7 @@ class UploadController < ApplicationController
   end
 
   def create
+    binding.pry
     render json: {}, status: 200
   end
 end

@@ -1,4 +1,5 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
+import CloudUploadIcon from 'mdi-react/CloudUploadIcon';
 
 const Dropzone = ({ disabled, onFilesAdded }) => {
   const fileInputRef = useRef(null);
@@ -56,16 +57,17 @@ const Dropzone = ({ disabled, onFilesAdded }) => {
       onClick={openFileDialog}
       style={{ cursor: disabled ? "default" : "pointer" }}
     >
-      <img
+      <CloudUploadIcon
         alt="upload"
         className="Icon"
-        src="baseline-cloud_upload-24px.svg"
       />
       <input
         ref={fileInputRef}
         className="FileInput"
         type="file"
-        multiple
+        // multiple
+        // directory=""
+        // webkitdirectory=""
         onChange={onChange}
       />
       <span>Upload Files</span>

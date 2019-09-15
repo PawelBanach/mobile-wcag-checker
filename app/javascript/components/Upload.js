@@ -6,7 +6,7 @@ import Numeric1CircleOutlineIcon from 'mdi-react/Numeric1CircleOutlineIcon'
 import Numeric2CircleOutlineIcon from 'mdi-react/Numeric2CircleOutlineIcon'
 import Numeric3CircleOutlineIcon from 'mdi-react/Numeric3CircleOutlineIcon'
 import InsertDriveFileIcon from 'mdi-react/InsertDriveFileIcon'
-import background from 'images/background.png'
+import background from 'images/background2.png'
 
 const Upload = () => {
   const [uploading, setUploading] = useState(false);
@@ -48,7 +48,7 @@ const Upload = () => {
       formData.append("file", file, file.name);
       formData.append("name", name);
 
-      req.open("POST", "http://localhost:3000/upload");
+      req.open("POST", "/upload");
       req.setRequestHeader('X-CSRF-Token', document.querySelector('meta[name="csrf-token"]').getAttribute('content'));
       req.send(formData);
     });
@@ -127,7 +127,7 @@ const Upload = () => {
         <div className="Background">
           <div className="Message">
             <span>Mobile Apps Accessibility Checker is a digital accessibility validator for mobile applications.
-               It meets the requirements of WCAG 2.1. Just follow the instructions on the right side.</span>
+               It meets the requirements of WCAG 2.1. On order to validate your mobile app follow the instructions on the right side.</span>
           </div>
           <img className="BackgroundImage" src={background}/>
         </div>

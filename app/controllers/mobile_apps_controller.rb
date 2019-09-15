@@ -8,15 +8,24 @@ class MobileAppsController < ApplicationController
     render component: 'MobileApps', props: { mobile_apps: @mobile_apps }
   end
 
+  def show
+
+    @mobile_app = MobileApp.find(params[:id])
+    render component: 'AccessibilityResults', props: { mobile_app: @mobile_app }
+  end
+
   def update
-    @mobile_app.update(accessibility)
-    binding.pry
+    @mobile_app.update(accessibility: accessibility_param, status: :verified)
   end
 
   private
 
+  def accessibility_param
+    JSON.parse(update_params[:accessibility])
+  end
+
   def update_params
-    params.permit(:result, :id)
+    params.permit(:accessibility, :id)
   end
 
   def mobile_app_params

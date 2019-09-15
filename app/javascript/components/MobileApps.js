@@ -1,13 +1,24 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import MobilePhoneAndroidIcon from 'mdi-react/MobilePhoneAndroidIcon'
 import AndroidIcon from 'mdi-react/AndroidIcon'
 import ScreenRotationIcon from 'mdi-react/ScreenRotationIcon'
 import VerifiedUserIcon from 'mdi-react/VerifiedUserIcon'
 
-const MobileApps = ({ mobile_apps }) => (
-  <div className="App">
-    <div id="users">
+const MobileApps = ({ mobile_apps }) => {
+  useEffect(() => {
+    const interval = setInterval(() => {
+      window.location.reload();
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const checkAccessibilityResults = (id) => {
+    window.location.href = `/mobile_apps/${id}`;
+  };
+
+  return (
+    <div className="App">
       <h3><MobilePhoneAndroidIcon class="IconMargin"/>Mobile apps</h3>
       <div className="ListContainer">
         <ul className="List">
@@ -25,8 +36,8 @@ const MobileApps = ({ mobile_apps }) => (
                 )}
                 {ma.status === "verified" && (
                   <Fragment>
-                    <span><ScreenRotationIcon className="VerifiedUserIcon"/>Verified</span>
-                    <button>Check Report</button>
+                    <span><VerifiedUserIcon className="IconMargin"/>Verified</span>
+                    <button onClick={() => checkAccessibilityResults(ma.id)}>Check Report</button>
                   </Fragment>
                 )}
               </div>
@@ -35,8 +46,8 @@ const MobileApps = ({ mobile_apps }) => (
         </ul>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 MobileApps.propTypes = {
   mobile_apps: PropTypes.array.isRequired

@@ -41,7 +41,9 @@
   }
 
   li:hover {
-    background: #a8d0f07d;
+    background: #8E2DE280;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #4A00E080, #8E2DE280);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #4A00E080, #8E2DE280); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   }
 }
 
@@ -78,4 +80,35 @@
 .AndroidIcon {
   width: 60px;
   height: 60px;
+}
+
+.SummaryImage {
+  width: 100%;
+  padding: 30px;
+}
+
+.ImageContainer {
+  width: 50%;
+  float: left;
+}
+
+.ResultsContainer {
+  width: 40%;
+  float: left;
+  height: 800px;
+  overflow: scroll;
+  padding: 20px;
+  margin: 30px;
+  text-align: left;
+
+  span {
+    line-height: 50px;
+  }
+}
+
+.Line {
+  font-size: 16px;
+  span {
+    line-height: 16px;
+  }
 }

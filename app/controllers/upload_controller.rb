@@ -1,13 +1,10 @@
 class UploadController < ApplicationController
   def index
-    render component: 'Upload'# , props: { users: @users }
-    # render json: { hello: "hi" }
+    render component: 'Upload'
   end
 
   def create
-    binding.pry
-    mobile_app = MobileApp.create(name: "Some App", description: "Test")
-    binding.pry
+    mobile_app = MobileApp.create(name: upload_params[:name], status: :pending)
     CreateMobileAppService.new(mobile_app, upload_params).call
     render json: {}, status: 200
   end
@@ -15,6 +12,6 @@ class UploadController < ApplicationController
   private
 
   def upload_params
-    params.permit(:file)
+    params.permit(:file, :name)
   end
 end

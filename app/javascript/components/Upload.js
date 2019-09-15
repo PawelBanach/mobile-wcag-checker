@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Dropzone from './Upload/components/Dropzone'
-import PropTypes from 'prop-types';
 import Progress from './Upload/components/Progress';
 import CheckCircleOutlineIcon from 'mdi-react/CheckCircleOutlineIcon'
 import Numeric1CircleOutlineIcon from 'mdi-react/Numeric1CircleOutlineIcon'
@@ -14,6 +13,7 @@ const Upload = () => {
   const [uploadProgress, setUploadProgress] = useState({});
   const [successfullUploaded, setSuccessfullUploaded] = useState(false);
   const [files, setFiles] = useState([]);
+  const [name, setName] = useState("");
 
   const sendRequest = (file) => {
     return new Promise((resolve, reject) => {
@@ -46,7 +46,8 @@ const Upload = () => {
 
       const formData = new FormData();
       formData.append("file", file, file.name);
-      debugger;
+      formData.append("name", name);
+
       req.open("POST", "http://localhost:3000/upload");
       req.setRequestHeader('X-CSRF-Token', document.querySelector('meta[name="csrf-token"]').getAttribute('content'));
       req.send(formData);
@@ -65,6 +66,7 @@ const Upload = () => {
       await Promise.all(promises);
       setSuccessfullUploaded(true);
       setUploading(false);
+      window.location.href = "/mobile_apps";
     } catch (e) {
       console.log(e);
       // Handle error somehow
@@ -96,6 +98,7 @@ const Upload = () => {
             setFiles([]);
             setSuccessfullUploaded(false);
           }}
+          disabled={files.length === 0 }
         >
           Clear
         </button>
@@ -133,11 +136,11 @@ const Upload = () => {
             <span className="Title">
               <Numeric1CircleOutlineIcon className="StepIcon"/>Name your app:
             </span>
-            <input className="NameInput" type="text"/>
+            <input className="NameInput" type="text" onChange={(e) => setName(e.target.value)} value={name} required/>
             <span className="Title">
               <Numeric2CircleOutlineIcon className="StepIcon"/>Select directory:
             </span>
-            <div className="Content">
+            <div className="FormContent">
               { files.length === 0 && (
                 <div>
                   <Dropzone

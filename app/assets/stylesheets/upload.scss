@@ -42,7 +42,8 @@
   position: absolute;
 }
 
-.Content {
+.FormContent {
+  height: 180px;
   padding-bottom: 50px;
   width: 100%;
 }
@@ -112,7 +113,7 @@
 }
 
 .StepIcon {
-  margin-right: 5px;
+  margin-right: 10px;
   vertical-align: middle;
   font-size: 20px;
   margin-bottom: 5px;

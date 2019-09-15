@@ -1,12 +1,11 @@
 class MobileAppsController < ApplicationController
   def index
     @mobile_apps = MobileApp.all
-    # render component: 'Users', props: { users: @users }
-    # render json: { hello: "hi" }
+    render component: 'MobileApps', props: { mobile_apps: @mobile_apps }
   end
 
-  def create
-
+  def update
+    binding.pry
   end
 
   def mobile_app_params

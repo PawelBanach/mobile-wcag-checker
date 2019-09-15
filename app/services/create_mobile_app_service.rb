@@ -5,15 +5,11 @@ class CreateMobileAppService
   end
 
   def call
-    binding.pry
     if @params[:file] && !file?(@params[:file])
-      binding.pry
       delete_source if @mobile_app.source.attached?
-      binding.pry
       @params.delete(:source)
     end
 
-    binding.pry
     @mobile_app.update(source: @params[:file])
   end
 

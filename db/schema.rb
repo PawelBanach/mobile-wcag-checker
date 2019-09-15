@@ -38,7 +38,8 @@ ActiveRecord::Schema.define(version: 2019_09_14_175955) do
 
   create_table "mobile_apps", force: :cascade do |t|
     t.string "name"
-    t.string "description"
+    t.string "status"
+    t.jsonb "accessibility", default: {}
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

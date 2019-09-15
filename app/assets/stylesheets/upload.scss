@@ -1,23 +1,65 @@
 .App {
+  width: 100%;
+  height: 100%;
   text-align: center;
-  background-color: rgb(206, 213, 223);
+  background-color: #f8fff5;
   min-height: 100vh;
-  display: flex;
+  display: block;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  font-family: 'Raleway', sans-serif;
+}
+
+.Header {
+  width: 100%;
+  padding: 10px 10px;
+}
+.MainHeader {
+  letter-spacing: 180px;
+  text-align: center;
+  margin-left: 150px;
+}
+.SubHeader {
+  letter-spacing: 10px;
+  font-weight: 100;
+}
+
+.Background {
+  width: 50%;
+  float: left;
+}
+
+.BackgroundImage {
+  width: 100%;
+}
+
+.Footer {
+  width: 100%;
+  height: 50px;
+  bottom: 0;
+  position: absolute;
+}
+
+.Content {
+  padding-bottom: 50px;
+  width: 100%;
 }
 
 .Card {
+  height: 480px;
   background-color: white;
-  padding: 32px;
-  width: 50%;
+  padding: 32px 32px 0px 32px;
+  width: 40%;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.11), 0 5px 15px 0 rgba(0, 0, 0, 0.08);
   box-sizing: border-box;
+  float: right;
+  margin: 20px 20px 20px 200px;
+  width: 400px;
 }
 
 .Upload {
@@ -27,6 +69,7 @@
   align-items: flex-start;
   text-align: left;
   overflow: hidden;
+  height: 450px;
 }
 
 .Content {
@@ -35,6 +78,7 @@
   padding-top: 16px;
   box-sizing: border-box;
   width: 100%;
+  height: 150px;
 }
 
 .Files {
@@ -48,15 +92,30 @@
 .Actions {
   display: flex;
   flex: 1;
-  width: 100%;
+  width: 50%;
   align-items: flex-end;
   flex-direction: column;
-  margin-top: 32px;
 }
 
 .Title {
-  margin-bottom: 32px;
+  margin-bottom: 20px;
   color: #555;
+  font-size: 16px;
+}
+
+.NameInput {
+  font-size: 14px;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  width: 90%;
+}
+
+.StepIcon {
+  margin-right: 5px;
+  vertical-align: middle;
+  font-size: 20px;
+  margin-bottom: 5px;
 }
 
 .Filename {
@@ -76,6 +135,10 @@
   box-sizing: border-box;
 }
 
+.ButtonContainer {
+  display: inline-flex;
+}
+
 .ProgressBar {
   width: 100%;
   height: 8px;
@@ -91,7 +154,6 @@
 }
 
 .CheckIcon {
-  opacity: 0.5;
   margin-left: 32px;
 }
 
@@ -103,8 +165,8 @@
 }
 
 .Dropzone {
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
   background-color: #fff;
   border: 2px dashed rgb(187, 186, 186);
   border-radius: 50%;
@@ -113,6 +175,7 @@
   justify-content: center;
   flex-direction: column;
   font-size: 16px;
+  margin-left: 100px;
 }
 
 .Icon {
@@ -129,8 +192,8 @@
   background-color: rgb(188, 185, 236);
 }
 
-button {
-  font-family: 'Roboto medium', sans-serif;
+  button {
+  margin-left: 100px;
   font-size: 14px;
   display: inline-block;
   height: 36px;
@@ -148,7 +211,7 @@ button {
   -ms-user-select: none;
   user-select: none;
   border: 0;
-  border-radius: 2px;
+  border-radius: 5px;
   background: rgba(103, 58, 183, 1);
   color: #fff;
   outline: 0;
@@ -157,4 +220,14 @@ button {
 button:disabled {
   background: rgb(189, 189, 189);
   cursor: default;
+}
+
+.Message {
+  font-size: 16px;
+  letter-spacing: 1px;
+  margin: 20px;
+  padding: 25px;
+  border-radius: 30px;
+  background: rgb(173,173,235);
+  background: linear-gradient(37deg, rgba(173,173,235,0.19791666666666663) 0%, rgba(173,173,235,0.2959558823529411) 26%, rgba(57,55,104,0.2539390756302521) 100%);
 }
